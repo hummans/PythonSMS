@@ -1,0 +1,60 @@
+import smtplib
+import getpass
+
+
+print("loading program...")
+print("connecting to server..")
+
+server = smtplib.SMTP_SSL("smtp.gmail.com")
+
+print("server connected") 
+
+email = raw_input("enter Your gmail: ")
+
+passwd = getpass.getpass("enter password: ")
+
+print("")
+print("enter phone or Email plus carrier........")
+print("eg. for phone 1231234567@carrier.domain")
+print("")
+
+phone = raw_input("enter phone: ")
+
+print("")
+print("enter message:")
+print("")
+
+msg = raw_input("enter a message to send: ")
+
+print("")
+print("message loading...")
+print("")
+print("message loaded")
+print("")
+print("")
+print("logging into server...")
+
+server.login(email,passwd)
+
+print("")
+print("login complete")
+print("")
+print("loading mail...")
+print("")
+print("load complete")
+print("")
+print("sending mail...")
+
+server.sendmail(email, phone, msg)
+
+print("")
+print("mail sent")
+print("")
+print("closing server connection...")
+
+server.close()
+
+print("")
+print("server closed")
+print("")
+print ("exiting...")
